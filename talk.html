@@ -17,7 +17,19 @@
 		</script>
 	</head>
 	<body>
+
+	<style type="text/css">
+	    #footer-left {
+	        position: absolute;
+	        bottom: 0%;
+	        left: 0%;
+	    }
+	</style>
+
 <div class="reveal">
+	<div id="header">
+			<div id="footer-left">goo.gl/Xdiz83</div>
+	</div>
 <div class="slides">
 <section data-markdown><!--------------------------------------------------------->
 	<textarea data-template>
@@ -43,8 +55,8 @@ So what is it?
 	<textarea data-template>
 ## How do you use it?
 
-- Laptops/Phones/tablets (hardly low power)
-- Fitness bands/beacons/etc.
+- Laptops/Phones/tablets
+- Fitness bands/thermometers/toys/etc.
 - Make your own hardware?
 	</textarea>
 </section>
@@ -52,9 +64,9 @@ So what is it?
 	<textarea data-template>
 ## Linux...
 
+- Node.js packages called `noble` and `bleno`
 - Raspberry Pi 3 / Zero W
 - Any other Linux with USB BLE
-- Android devices
 - Generally not suitable for > 1 week on battery
 	</textarea>
 </section>
@@ -65,7 +77,7 @@ So what is it?
 - Tiny all-in one computers (RAM, ROM  and peripherals on-chip)
 - RAM and ROM usually measured in Kilobytes
 - Speed mostly under 100 MHz
-- Can be very low power
+- Can be very low power (good sleep modes)
 - Bluetooth LE can also be on-chip <!-- .element: class="fragment plain" -->
 
 ![](img/nRF52.png) <!-- .element: class="fragment plain" -->
@@ -128,6 +140,13 @@ Access Bluetooth LE from a Web Page
 * Espruino for Microcontrollers
 </textarea>
 </section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## goo.gl/Xdiz83
+
+https://gfwilliams.github.io/workshop-nodeconfeu2018/
+</textarea>
+</section>
 
 <section data-markdown><!--------------------------------------------------------->
 	<textarea data-template>
@@ -154,15 +173,13 @@ Press button on LHS for Menu
 </section>
 <section data-markdown><!--------------------------------------------------------->
 	<textarea data-template>
-## Set up your Badge
-
+		<!-- .slide: data-background="#ffffff" -->
 ![](img/badgeconnect1.png) <!-- .element: class="plain" -->
 	</textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->
 	<textarea data-template>
-## Set up your Badge
-
+		<!-- .slide: data-background="#ffffff" -->
 ![](img/badgeconnect2.png) <!-- .element: class="plain" -->
 	</textarea>
 </section>
@@ -237,8 +254,8 @@ https://www.bluetooth.com/specifications/assigned-numbers/generic-access-profile
 
 Explains what a device can do. Designed to save space (ish)
 
-* 16 bit UUIDs - assiged by Bluetooth (or $$$)
-* 32 bit UUIDs - assiged by Bluetooth (or $$$)
+* 16 bit UUIDs - assigned by Bluetooth (or $$$)
+* 32 bit UUIDs - assigned by Bluetooth (or $$$)
 * 128 bit UUIDs - Free! Randomly choose one.
 </textarea>
 </section>
@@ -253,12 +270,12 @@ Chosen by Nordic for 'Nordic UART Service' - which we'll cover later.
 <textarea data-template>
 You can add data onto the end of a service.
 
-![](img/nrfconnect_env1.png)
+![](img/nrfconnect_env2.png)
 </textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->
 <textarea data-template>
-![](img/nrfconnect_env2.png)
+![](img/nrfconnect_env1.png)
 </textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->
@@ -316,7 +333,12 @@ BluetoothDevice: {
 <section data-markdown><!--------------------------------------------------------->
 <textarea data-template>
 ```JS
-...
+var hum = {
+	temperature : (new Uint16Array(
+	  device.serviceData["2a6e"]))[0]/100,
+	humidity : (new Uint16Array(
+	  device.serviceData["2a6f"]))[0]/100
+};
 g.clear();
 g.setFontVector(20);
 g.drawString(hum.temperature, 20,8);
@@ -330,7 +352,8 @@ g.flip();
 </section>
 <section data-markdown><!--------------------------------------------------------->
 <textarea data-template>
-![](img/weatherstation.png)
+	<!-- .slide: data-background="#ffffff" -->
+![](img/weatherstation.png) <!-- .element: class="plain" -->
 </textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->
@@ -476,17 +499,20 @@ We need something to test on.
 </section>
 <section data-markdown><!--------------------------------------------------------->
 <textarea data-template>
-![](img/workshop1.png)
+	<!-- .slide: data-background="#ffffff" -->
+![](img/workshop1.png) <!-- .element: class="plain" -->
 </textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->
 <textarea data-template>
-![](img/workshop2.png)
+		<!-- .slide: data-background="#ffffff" -->
+![](img/workshop2.png) <!-- .element: class="plain" -->
 </textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->
 <textarea data-template>
-![](img/workshop3.png)
+		<!-- .slide: data-background="#ffffff" -->
+![](img/workshop3.png) <!-- .element: class="plain" -->
 </textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->
@@ -636,6 +662,12 @@ return characteristic.readValue(rgb);
 }).then(function() {
 ...
 ```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+		<!-- .slide: data-background="#ffffff" -->
+![](img/workshop4.png) <!-- .element: class="plain" -->
 </textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->
