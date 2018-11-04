@@ -2,4 +2,8 @@
 
 Bluetooth Workshop for Nodeconf EU 2018.
 
-* [See the workshop itself](WORKSHOP.md)
+* [Step 1 - Getting Connected](step1.md)
+* [Step 2 - Advertising](step2.md)
+* [Step 3 - Services and Web Bluetooth](step3.md)
+* [Step 4 - Web Bluetooth - Writing](step4.md)
+* [Step 5 - Notifications](step5.md)
