@@ -47,7 +47,7 @@ While waiting for everyone else, there are a few things you can do...
 * Try the simple on-screen tutorial by clicking the book in the top right of the IDE,
 followed by `Tutorial`
 * See the written Espruino intro at http://www.espruino.com/Quick+Start+Code
-* Check out your Nodeconf Badge's documentation and examples **FIXME: Link needed**
+* Check out [the Nodeconf EU Badge's documentation and examples](https://github.com/nearform/nceubadge2018)
 * Play around with the [Graphics library](http://www.espruino.com/Reference#Graphics) - the badge comes with a built-in Graphics class called `g`. You just need to call `g.flip()` to update your changes to the LCD display.
 * Try some of [Espruino's Pixl.js Tutorials/Code](http://www.espruino.com/Pixl.js#tutorials),
 for example the [Morphing Clock](http://www.espruino.com/Morphing+Clock)

@@ -7,3 +7,5 @@ Bluetooth Workshop for Nodeconf EU 2018.
 * [Step 3 - Services and Web Bluetooth](step3.md)
 * [Step 4 - Web Bluetooth - Writing](step4.md)
 * [Step 5 - Notifications](step5.md)
+
+* [Badge Hacking info](https://github.com/nearform/nceubadge2018)
