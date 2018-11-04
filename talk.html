@@ -1,0 +1,748 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Espruino Workshop</title>
+		<link rel="stylesheet" href="revealjs/css/reveal.css">
+		<link rel="stylesheet" href="revealjs/css/theme/black.css">
+		<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+<div class="reveal">
+<div class="slides">
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## Bluetooth LE, Microcontrollers, and Badges
+
+Gordon Williams, @Espruino
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## Bluetooth LE
+
+So what is it?
+
+- 2.4GHz Radio (like most WiFi/Bluetooth)
+- NOT Bluetooth
+- Low Power (Months/Years on a battery)
+- Simple (ish)
+- Average ~20M range
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## How do you use it?
+
+- Laptops/Phones/tablets (hardly low power)
+- Fitness bands/beacons/etc.
+- Make your own hardware?
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## Linux...
+
+- Raspberry Pi 3 / Zero W
+- Any other Linux with USB BLE
+- Android devices
+- Generally not suitable for > 1 week on battery
+	</textarea>
+</section>
+<section data-markdown data-background-image="img/microcontroller.jpg"><!--------------------------------------------------------->
+	<textarea data-template>
+## Microcontrollers
+
+- Tiny all-in one computers (RAM, ROM  and peripherals on-chip)
+- RAM and ROM usually measured in Kilobytes
+- Speed mostly under 100 MHz
+- Can be very low power
+- Bluetooth LE can also be on-chip <!-- .element: class="fragment plain" -->
+
+![](img/nRF52.png) <!-- .element: class="fragment plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+<!-- .slide: data-background="#ffffff" -->
+![](img/nRF52832DK.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/jsheart.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## Espruino
+
+- JS interpreter for Microcontollers
+- Open Soure MPLv2
+- Can run in 128kB Flash under 6kB RAM
+- Not 100% ES5, but RegEx, Classes, Promises, Arrow fns, Template Literals
+http://www.espruino.com/Features
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+<!-- .slide: data-background="#ffffff" -->
+![](img/mdbt42.jpg) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/badgeback.jpg) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## How do you program it?
+
+USB is only for charging
+
+![](img/webbluetooth.svg)<!-- .element: class="fragment plain" data-fragment-index="1" -->![](img/chromelogo.jpg)<!-- .element: class="fragment plain" data-fragment-index="1" -->
+- Web Bluetooth<!-- .element: class="fragment" data-fragment-index="1" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## Web Bluetooth
+
+Access Bluetooth LE from a Web Page
+
+* Mainly Chrome/Opera right now
+* Windows 10, Mac OS, Chromebook, Android 'just work'
+* Linux usually 'just works', but unsupported
+* WebBLE app available for iPhone/iPad
+* Packages for Web Bluetooth on Node.js
+* Espruino for Microcontrollers
+</textarea>
+</section>
+
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+# Step 1
+### Get Connected
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/webide1.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/webide2.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## Set up your Badge
+
+Press button on LHS for Menu
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## Set up your Badge
+
+![](img/badgeconnect1.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## Set up your Badge
+
+![](img/badgeconnect2.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/webide2.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/webide3.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/webide4.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+# ...
+	</textarea>
+</section>
+
+
+
+
+
+
+
+
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+# Step 2
+### Advertising
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/webbluetooth_menu.png)
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+* Burst of data sent every 100-1000(ish) ms, spread over 3 BT channels.
+* Max 31 bytes of data (BT 4.2)
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+Length,Type,Data...
+
+```Unformatted
+0201050D095069786C2E6A732064373534
+11079ECADC240EE5A9E093F3A3B50100406E
+
+020105
+  2 bytes, 1 = flags,  5
+0D095069786C2E6A732064373534
+  13 bytes, 9 = name, "Pixl.js d754"
+11079ECADC240EE5A9E093F3A3B50100406E
+  17 bytes, 7 = 128 bit Service UUID
+	6e400001-b5a3-f393-e0a9-e50e24dcca9e
+```
+
+https://www.bluetooth.com/specifications/assigned-numbers/generic-access-profile
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## UUIDs
+
+Explains what a device can do. Designed to save space (ish)
+
+* 16 bit UUIDs - assiged by Bluetooth (or $$$)
+* 32 bit UUIDs - assiged by Bluetooth (or $$$)
+* 128 bit UUIDs - Free! Randomly choose one.
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## `6e400001-b5a3-f393-e0a9-e50e24dcca9e`
+
+Chosen by Nordic for 'Nordic UART Service' - which we'll cover later.
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+You can add data onto the end of a service.
+
+![](img/nrfconnect_env1.png)
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+![](img/nrfconnect_env2.png)
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+```JS
+// Bluetooth spec says data is 16 bits, 0.01/unit - so x100
+var t = Math.round(hum.temperature*100);
+var h = Math.round(hum.humidity*100);
+// Set advertising data and name
+NRF.setAdvertising({
+	0x2A6E : [t&255,t>>8],
+	0x2A6F : [h&255,h>>8],
+},{
+	name:"ENV",       // change the name
+	connectable:false // don't allow anyone to connect
+});
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+Web Bluetooth can't read this... yet.
+
+But Espruino can:
+
+```JS
+NRF.requestDevice({filters:[{name:"ENV"}]}).then(device => {
+  console.log("Found device");
+  console.log(device);
+}).catch(err => {
+  console.log("There was a problem!", err);
+});
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+```
+>NRF.requestDevice(...
+=Promise: {  }
+Found device
+BluetoothDevice: {
+  "id": "c0:03:88:c9:0d:ec random",
+  "rssi": -29,
+  "data": new Uint8Array([2, 1, 5, 5,... 78, 86]).buffer,
+  "name": "ENV",
+  "serviceData": {
+    "2a6e": new Uint8Array([157, 9]).buffer,
+    "2a6f": new Uint8Array([86, 17]).buffer
+   }
+ }
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+```JS
+...
+g.clear();
+g.setFontVector(20);
+g.drawString(hum.temperature, 20,8);
+g.drawString(hum.humidity, 20,40);
+g.setFontBitmap();
+g.drawString("Temperature ('C)", 0,0);
+g.drawString("Humidity (%)", 0,32);
+g.flip();
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+![](img/weatherstation.png)
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+# ...
+</textarea>
+</section>
+
+
+
+
+
+
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+# Step 3
+### Services
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+* Advertising is one-way, no guarantees
+* Also Unencrypted
+* For reliable/secure transmission you need a connection
+* Connection is based on Services/Characteristics
+* Characteristics can **notify** changes  or be **read**/**written**
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## Peripheral
+
+* Provides the 'services'
+* eg. Light bulb, Health Band/etc
+* Also known as the **server**
+
+## Central
+
+* Usually **makes** the connection
+* eg. Phone/Laptop
+* Also known as the **client**
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## Wireless Lightbulb
+
+Has a light, and battery.
+
+* **Service:** Light
+  * **Characteristic:** Brightness (writable, readable)
+  * **Characteristic:** Hue (writable, readable)
+* **Service:** Battery
+  * **Characteristic:** Percent Charge (readable, notify)
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## Serial port
+
+Has transmit, and receive:
+
+* **Service:** Nordic UART
+  * `6e400001-b5a3-f393-e0a9-e50e24dcca9e`
+  * **Characteristic:** TX (notify)
+  * **Characteristic:** RX (writable)
+</textarea>
+</section>
+<section data-markdown data-background-image="img/nrfconnect_uart.png" data-background-size="contain"><!--------------------------------------------------------->
+	<textarea data-template>
+	</textarea>
+</section>
+<section data-markdown data-background-image="img/nrfconnect_uart2.png" data-background-size="contain"><!--------------------------------------------------------->
+	<textarea data-template>
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## Control Espruino
+
+* JS REPL is available on Bluetooth LE...
+* JS commands + `"\n"` => `RX` Characteristic
+* Not 100% simple...
+ * Finding device
+ * Max packet size of 20 bytes
+ * ...
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## Web Bluetooth Security
+
+* Only available on HTTPS (we'll use GitHub pages)
+* Device Chooser only available in direct response to user input
+  * No `document.onload`
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+To get started, use Puck.js library:
+
+```
+<html>
+ <head>
+ </head>
+ <body>
+  <script src="https://www.puck-js.com/puck.js"></script>
+  <button onclick="Puck.write('LED1.set();\n');">On!</button>
+  <button onclick="Puck.write('LED1.reset();\n');">Off!</button>
+ </body>
+</html>
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+# ...
+	</textarea>
+</section>
+
+
+
+
+
+
+
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+# Step 4
+### Writing to Services
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## Simple, Easy
+
+Also boring.
+
+Let's use Web Bluetooth directly.
+
+We need something to test on.
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+![](img/workshop1.png)
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+![](img/workshop2.png)
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+![](img/workshop3.png)
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+	* **Service:** UUID 7b340000-105b-2b38-3a74-2932f884e90e - Badge Service
+	  * **Characteristic:** UUID 7b340001-105b-2b38-3a74-2932f884e90e - LEDs - 3 bytes (writable)
+	  * **Characteristic:** UUID 7b340002-105b-2b38-3a74-2932f884e90e - Vibraton motors - 2 bytes (writable)
+</textarea>
+</section>
+<section data-markdown data-background-image="img/nrfconnect_led.png" data-background-size="contain"><!--------------------------------------------------------->
+	<textarea data-template>
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+```JS
+var options =  {
+	filters: [
+		{ namePrefix: 'Pixl.js' },
+	],
+	optionalServices: [
+	  "7b340000-105b-2b38-3a74-2932f884e90e"
+	]
+};
+// Bring up the Web Bluetooth Device Chooser
+navigator.bluetooth.requestDevice(options).then(
+  function(device) {
+  	return device.gatt.connect();
+}).then(function(g) {
+...
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+```JS
+...
+}).then(function(g) {
+ gatt = g;
+ // Get our custom service
+ return gatt.getPrimaryService("7b340000-105b-...");
+}).then(function(service) {
+	// Get the RGB LED characteristic
+	return service.getCharacteristic("7b340001-105b-...");
+}).then(function(characteristic) {
+...
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+```
+...
+}).then(function(characteristic) {
+	// Make a random color
+	var rgb = new Uint8Array([
+		Math.random()*255,
+		Math.random()*255,
+		Math.random()*255]);
+	// Write it to the characteristic
+	return characteristic.writeValue(rgb);
+}).then(function(characteristic) {
+	gatt.disconnect();
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+* LEDs: `7b340001-105b-2b38-3a74-2932f884e90e`
+  * 3 bytes (0..255), R, G, B
+* Vibrate: `7b340002-105b-2b38-3a74-2932f884e90e`
+  * 2 bytes (0..255) for Left and Right Motors
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## **Defining** a Service
+
+Not Web Bluetooth spec. On Espruino:
+
+```
+NRF.setServices({
+ "7b340000-105b-2b38-3a74-2932f884e90e" : {
+   "7b340001-105b-2b38-3a74-2932f884e90e" : {
+     writable : true,
+     value : [0,0,0],
+     maxLen : 3,
+     onWrite : function(evt) { ... },
+   },
+	 ...
+ }
+});
+```
+</textarea>
+</section>
+
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+# ...
+	</textarea>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+# Step 5
+### Reading from Services
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+### Write
+```
+return characteristic.writeValue(rgb);
+}).then(function() {
+```
+
+### Read
+```
+return characteristic.readValue(rgb);
+}).then(function(value) {
+	// value is a DataView
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## Notifications
+
+```
+...
+}).then(function(characteristic) {
+	characteristic.addEventListener('characteristicvaluechanged', function(event) {
+		var dataView = event.target.value; // a DataView
+    ...
+	});
+	return characteristic.startNotifications();
+}).then(function() {
+...
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+<textarea data-template>
+## **Defining** a Service
+
+Not Web Bluetooth spec. On Espruino:
+
+```
+NRF.setServices({
+ "7b340000-105b-2b38-3a74-2932f884e90e" : {
+   "7b340003-105b-2b38-3a74-2932f884e90e" : {
+     readable : true, notify : true,
+     value : [0,0,0]
+   }
+ }
+...
+NRF.updateServices({
+  "7b340000-105b-2b38-3a74-2932f884e90e" : {
+   "7b340003-105b-2b38-3a74-2932f884e90e" : {
+     value : [a,b,c],
+     notify: true
+   }
+ }
+});
+```
+</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+# ...
+	</textarea>
+</section>
+
+
+
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+# Wrap-up
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+* Advertising
+* Central / Peripheral
+* Services / Characteristics
+* Notifications
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## Espruino
+* 'Central' uses the Web Bluetooth API
+* There's no standard for 'Peripheral'
+ * Uses `NRF.setServices/setAdvertising/etc`
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+## What next?
+* Web Bluetooth Samples
+https://googlechrome.github.io/samples/web-bluetooth/
+* Pixl.js/Espruino Tutorials
+http://www.espruino.com/Pixl.js#tutorials
+* Espruino Reference
+http://www.espruino.com/Reference
+* Espruino Forum
+http://forum.espruino.com/
+	</textarea>
+</section>
+
+
+
+
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+# Fin.
+
+www.espruino.com / @Espruino
+	</textarea>
+</section>
+
+</div>
+</div>
+<!------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------->
+
+		<script src="revealjs/lib/js/head.min.js"></script>
+		<script src="revealjs/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+//				fragmentInURL: true,
+				history:true,
+				dependencies: [
+					{ src: 'revealjs/plugin/markdown/marked.js' },
+					{ src: 'revealjs/plugin/markdown/markdown.js' },
+					{ src: 'revealjs/plugin/notes/notes.js', async: true },
+					{ src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
