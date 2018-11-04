@@ -10,11 +10,17 @@ motor.
 * Ensure you don't have the `nRF Connect` app or and Web Bluetooth pages open and connected to the badge
 * Flip the switch on the back to power cycle your badge.
 * Press a button on the left-hand side to get to the menu
+
 ![](img/workshop1.png)
+
 * Choose `Blueooth Workshop`
+
 ![](img/workshop2.png)
+
 * Choose `LED/Buzzer Control`
+
 ![](img/workshop3.png)
+
 * You should now see a menu saying the badge is connectable.
 
 So what just happened? The Badge has now configured itself as the following:

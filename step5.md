@@ -12,9 +12,13 @@ but in getting notified when a reading changes.
 
 * Ensure everything (including the Web Bluetooth page) is disconnected from Espruino
 * Close the tab with the Web Bluetooth Page (the Badge's services can end up being cached)
+
 ![](img/workshop4.png)
+
 * Choose `Accelerometer` from the Badge's menu
+
 ![](img/workshop3.png)
+
 * You should now see a menu saying the badge is connectable.
 
 The Badge has now configured itself as the following:

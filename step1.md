@@ -11,20 +11,32 @@ We'll do this with the Espruino IDE - once connected you'll be able to fully rep
 
 * First, go to http://www.espruino.com/ide **in an up to date Chrome Web Browser**
 * Click the connection icon in the top left
+
 ![](img/webide1.png)
+
 * You should see `Web Bluetooth` - if you don't, check out [Espruino's Guide](http://www.espruino.com/Quick+Start+BLE#with-web-bluetooth) and if there's nothing useful there, seek help. We have a few USB dongles that'll work on older Macs and PCs.
+
 ![](img/webide2.png)
+
 * Now it's time to set up the badge so you can connect to it. Press a button
 on the left-hand side to bring up the menu.
 * Choose `Make Connectable`
+
 ![](img/badgeconnect1.png)
+
 * Now you should see the following screen - note the Name shown on-screen.
+
 ![](img/badgeconnect1.png)
+
 * Click the connect icon in the top left of the IDE again, and click `Web Bluetooth`
 * You should see a bunch of devices - choose the one with the name as it is written on your badge's screen:
+
 ![](img/webide3.png)
+
 * Now you should be connected!
+
 ![](img/webide4.png)
+
 * On the left-hand side of the IDE is a REPL where you can enter commands. There's
 Tab Completion which may help you.
 * On the right-hand side there's an editor. Ctrl-Space will autocomplete, including documentation on the various functions available.
