@@ -23,6 +23,7 @@
 	        position: absolute;
 	        bottom: 0%;
 	        left: 0%;
+					padding:8px;
 	    }
 	</style>
 
@@ -200,6 +201,63 @@ Press button on LHS for Menu
 </section>
 <section data-markdown><!--------------------------------------------------------->
 	<textarea data-template>
+## Hacking!
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+![](img/webide_settings1.png) <!-- .element: class="plain" -->
+
+![](img/webide_settings2.png) <!-- .element: class="plain" -->
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+```
+g.clear();
+g.drawString("Hello World");
+g.flip();
+```
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+```JavaScript
+Badge.patterns.green=()=>{
+  var n=0;
+  return [()=>{
+    n+=50;
+    if (n>1536)n=0;
+    NC.ledTop([0,Math.max(255-Math.abs(n-1024),0),0]);
+    NC.ledBottom([0,Math.max(255-Math.abs(n-1384),0),0]);
+    NC.backlight([0,Math.max(255-Math.abs(n-640),0),0,
+                  0,Math.max(255-Math.abs(n-512),0),0,
+                  0,Math.max(255-Math.abs(n-384),0),0,
+                  0,Math.max(255-Math.abs(n-256),0),0]);
+  },50];
+};
+Badge.pattern("green"); // Use pattern now
+```
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
+```JavaScript
+require("Storage").write(".boot0",`
+Badge=global.Badge||{};
+Badge.patterns=Badge.patterns||{};
+// --------------------------------- Your code
+Badge.patterns.green=()=>{
+  // ...
+};
+// ---------------------------------
+Badge.defaultPattern = "green";
+`);
+```
+	</textarea>
+</section>
+<section data-markdown><!--------------------------------------------------------->
+	<textarea data-template>
 # ...
 	</textarea>
 </section>
@@ -225,7 +283,7 @@ Press button on LHS for Menu
 <section data-markdown><!--------------------------------------------------------->
 	<textarea data-template>
 * Burst of data sent every 100-1000(ish) ms, spread over 3 BT channels.
-* Max 31 bytes of data (BT 4.2)
+* Max 31 bytes of payload (BT 4.2)
 </textarea>
 </section>
 <section data-markdown><!--------------------------------------------------------->

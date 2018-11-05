@@ -42,12 +42,87 @@ Tab Completion which may help you.
 * On the right-hand side there's an editor. Ctrl-Space will autocomplete, including documentation on the various functions available.
 To upload code from the right-hand side, just click the 'Upload' button right in the middle of the IDE.
 
-While waiting for everyone else, there are a few things you can do...
+## Backlight Hacking
+
+Now you're connected, you could try customising your Badge's backlight...
+
+* Go into the Web IDE's settings (top right) and under `Communications` turn off
+`Reset before send` and ensure `Save on Send` is set to `To RAM` (this will
+  stop you accidentally overwriting your badge's code).
+* Copy the following code in to the right-hand side of the IDE:
+
+```
+Badge.patterns.green=()=>{
+  var n=0;
+  return [()=>{
+    n+=50;
+    if (n>1536)n=0;
+    NC.ledTop([0,Math.max(255-Math.abs(n-1024),0),0]);
+    NC.ledBottom([0,Math.max(255-Math.abs(n-1384),0),0]);
+    NC.backlight([0,Math.max(255-Math.abs(n-640),0),0,
+                  0,Math.max(255-Math.abs(n-512),0),0,
+                  0,Math.max(255-Math.abs(n-384),0),0,
+                  0,Math.max(255-Math.abs(n-256),0),0]);
+  },50];
+};
+// Run the pattern right now
+Badge.pattern("green");
+```
+
+* Now click the 'upload' button (in the middle of the screen) - this should
+now make your badge light up with a green animation.
+
+So what's going on? The badge's lights are controlled by arrays of
+`blue, green, red` values, all of which are between 0 and 255.
+
+`ledTop` and `ledBottom` are just one colour, so take 3 elements.
+
+However the LCD `backlight` has 4 separate LEDs, so it has 12 elements,
+`[B1,G1,R1, B2,G2,R2, B3,G3,R3, B4,G4,R4]` for the 4 LEDs.
+
+* Have a play around with different code - you can use `E.HSBtoRGB` to get
+different hues easily - check out [the Badge's code](https://github.com/nearform/nceubadge2018/blob/master/js/badge.js#L948)
+for some examples.
+* When you're happy with the pattern, you might want to save it so that it's
+restored even after power off. Wrap your code as follows, and click `upload`
+again:
+
+```
+require("Storage").write(".boot0",`
+Badge=global.Badge||{};
+Badge.patterns=Badge.patterns||{};
+// --------------------------------- Your code
+Badge.patterns.green=()=>{
+  var n=0;
+  return [()=>{
+    n+=50;
+    if (n>1536)n=0;
+    NC.ledTop([0,Math.max(255-Math.abs(n-1024),0),0]);
+    NC.ledBottom([0,Math.max(255-Math.abs(n-1384),0),0]);
+    NC.backlight([0,Math.max(255-Math.abs(n-640),0),0,
+                  0,Math.max(255-Math.abs(n-512),0),0,
+                  0,Math.max(255-Math.abs(n-384),0),0,
+                  0,Math.max(255-Math.abs(n-256),0),0]);
+  },50];
+};
+Badge.defaultPattern = "green";  // <--------- pattern name here
+`);
+```
+
+* Now you can type `load()` to have the badge reload everything from
+flash memory, along with your pattern!
+
+For making badge apps, and other stuff, check out
+[the Nodeconf EU Badge's documentation and examples](https://nodeconfeubadge.org).
+
+## Other stuff...
+
+If you're interested in playing with Espruino further...
 
 * Try the simple on-screen tutorial by clicking the book in the top right of the IDE,
 followed by `Tutorial`
-* See the written Espruino intro at http://www.espruino.com/Quick+Start+Code
-* Check out [the Nodeconf EU Badge's documentation and examples](https://github.com/nearform/nceubadge2018)
+* See the normal Espruino intro at http://www.espruino.com/Quick+Start+Code
+* Check out [the Nodeconf EU Badge's documentation and examples](https://nodeconfeubadge.org)
 * Play around with the [Graphics library](http://www.espruino.com/Reference#Graphics) - the badge comes with a built-in Graphics class called `g`. You just need to call `g.flip()` to update your changes to the LCD display.
 * Try some of [Espruino's Pixl.js Tutorials/Code](http://www.espruino.com/Pixl.js#tutorials),
 for example the [Morphing Clock](http://www.espruino.com/Morphing+Clock)
