@@ -8,4 +8,4 @@ Bluetooth Workshop for Nodeconf EU 2018.
 * [Step 4 - Web Bluetooth - Writing](step4.md)
 * [Step 5 - Notifications](step5.md)
 
-* [Badge Hacking info](https://goo.gl/PMBgdy)
+* [Badge Hacking info](https://nodeconfeubadge.org)
