@@ -130,5 +130,11 @@ and see if that works.
 More info about this [is on the Espruino site](http://www.espruino.com/Puck.js+Web+Bluetooth).
 
 
+### Connecting from an Espruino device
+
+You can connect from one Espruino device to another using a UART connection
+as well. Check out http://www.espruino.com/Puck.js+BLE+UART for some
+examples of doing that.
+
 
 ## [Step 4 - Web Bluetooth - Writing](step4.md)
