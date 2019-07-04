@@ -7,5 +7,9 @@ Bluetooth Workshop for Nodeconf EU 2018.
 * [Step 3 - Services and Web Bluetooth](step3.md)
 * [Step 4 - Web Bluetooth - Writing](step4.md)
 * [Step 5 - Notifications](step5.md)
+* [Workshop slides](talk.html) - but the slide contents should all be in the workshop already.
 
 * [Badge Hacking info](https://nodeconfeubadge.org)
+
+
+
